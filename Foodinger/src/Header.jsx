@@ -1,5 +1,7 @@
 import React from 'react'
 import logo from './assets/logo.png';
+import cart from './assets/cart.svg';
+
 
 function Header() {
   return (
@@ -13,7 +15,12 @@ function Header() {
           <li>Home</li>
           <li>About Us</li>
           <li>Conact Us</li>
-          <li>Cart</li>
+          <li className='cart'>
+            <img src={cart} alt="" />
+
+            
+            
+            </li>
         </ul>
       </div>
     </div>

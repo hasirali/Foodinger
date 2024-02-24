@@ -1,3 +1,10 @@
+.headingf {
+  font-size: 43px;
+  text-shadow: 4px 6px 6px #9f3b09;
+  color: rgb(240, 248, 255);
+  letter-spacing: 2.2px;
+  word-spacing: 3.8px;
+}
 .search-container {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +40,9 @@
   border-bottom-right-radius: 50px;
 }
 .btn1 {
+  position: absolute;
+  bottom: 34px;
+  left: 25px;
   background-color: rgb(233, 150, 7);
   border: none;
   display: flex;
@@ -44,22 +54,30 @@
   height: 40px;
   border-radius: 50px;
 }
+.btn1:hover {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(233, 150, 7);
+  transform: scale(1.1);
+  transition: background-color 0.1s;
+}
 .res-container {
   background-color: rgba(240, 239, 238, 0.616);
   display: flex;
   flex-wrap: wrap;
   max-width: 95vw;
   margin: 0px auto;
-  /* border: 2px solid black; */
-  /* -webkit-box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75); */
+
+  -webkit-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
   margin-top: 100px;
 }
 .res-card {
+  position: relative;
   background-color: rgba(255, 255, 255, 0.991);
   padding: 10px 10px;
+  /* overflow-y: scroll; */
   -webkit-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
@@ -67,8 +85,12 @@ box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75); */
   /* border: 1px solid black; */
   width: 16vw;
   border-radius: 20px;
-  height: 46vh;
+  height: 58vh;
   cursor: pointer;
+}
+.res-card:hover {
+  transform: scale(1.1);
+  transition: transform 0.1s;
 }
 .res-card img {
   /* object-fit: cover; */
