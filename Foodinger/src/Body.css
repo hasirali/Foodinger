@@ -32,22 +32,39 @@
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
+.btn1 {
+  background-color: rgb(233, 150, 7);
+  border: none;
+  display: flex;
+  width: 30vh;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 15px auto;
+  height: 40px;
+  border-radius: 50px;
+}
 .res-container {
-  background-color: rgba(221, 185, 117, 0.384);
+  background-color: rgba(240, 239, 238, 0.616);
   display: flex;
   flex-wrap: wrap;
   max-width: 95vw;
   margin: 0px auto;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  /* -webkit-box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 7px 3px rgba(0,0,0,0.75); */
   border-radius: 20px;
-
   margin-top: 100px;
 }
 .res-card {
   background-color: rgba(255, 255, 255, 0.991);
   padding: 10px 10px;
-  margin: 10px 40px;
-  /* border: 2px solid black; */
+  -webkit-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
+  margin: 30px 48px;
+  /* border: 1px solid black; */
   width: 16vw;
   border-radius: 20px;
   height: 46vh;
@@ -59,4 +76,3 @@
   width: 16vw;
   height: 22vh;
 }
-

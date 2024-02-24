@@ -9,6 +9,8 @@ body {
     background-image: url("https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_1200,h_630,d_uk:cuisines:argentinian-1.jpg/v1/uk/restaurants/164421.jpg");
     background-repeat: repeat;
     /* background-size: 100% 100%; */
+    overflow-x: hidden;
+    
   }
 
 .header {
