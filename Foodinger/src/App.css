@@ -22,10 +22,7 @@ body {
   background-color: rgb(255, 94, 13);
   /* position: fixed; */
 }
-.nav-items ul li .cart{
-  height: 55px;
-  width: 53px;
-}.nav-items ul li .cart{
+.nav-items ul li img {
   height: 55px;
   width: 53px;
 }
