@@ -7,6 +7,7 @@ import { useState } from "react";
 function Body() {
   // scope of state variable is only in this component
   const [filteredResObj, setFilteredResObj] = useState(resObj);
+  // array destructuring⬆️
   const [z, setz] = useState(filteredResObj);
 
   return (
