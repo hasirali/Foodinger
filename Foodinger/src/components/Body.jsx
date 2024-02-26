@@ -1,14 +1,45 @@
 import "./Body.css";
 import RestaurantCard from "./RestaurantCard";
 import resObj from "../Utils/mockData";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 
 function Body() {
-  // scope of state variable is only in this component
   const [filteredResObj, setFilteredResObj] = useState(resObj);
-  // array destructuring⬆️
+  const [buttonText, setButtonText] = useState("top Rated Restaurants");
+
+  const handleToggle = () => {
+    if (buttonText === "top Rated Restaurants") {
+      setButtonText("All Restaurants");
+      const filteredResObj = resObj.filter((e) => e.avgRating > 4.5);
+      setFilteredResObj(filteredResObj);
+    } else {
+      setButtonText("top Rated Restaurants");
+      setFilteredResObj(resObj);
+    }
+  };
+
   const [z, setz] = useState(filteredResObj);
+  // scope of state variable is only in this component
+  // array destructuring⬆️
+  
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4272113&lng=81.805925&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+
+    setFilteredResObj(
+      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  
+
+
 
   return (
     <>
@@ -27,15 +58,18 @@ function Body() {
 
       <button
         className="filtered-btn"
-        onClick={() => {
-          const filteredResObj = resObj.filter((e) => e.avgRating > 4.5);
-          setFilteredResObj(filteredResObj);
-        }}
-        onDoubleClick={() => {
-          setFilteredResObj(resObj);
-        }}
+        onClick={handleToggle}
+
+        // onClick={() => {
+        //   const filteredResObj = resObj.filter((e) => e.avgRating > 4.5);
+        //   setFilteredResObj(filteredResObj);
+        // }}
+        // onDoubleClick={() => {
+        //   setFilteredResObj(resObj);
+        // }}
       >
-        Top Rated Restaurants
+        {buttonText}
+        {/* Top Rated Restaurants */}
       </button>
 
       <div className="res-container">

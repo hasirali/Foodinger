@@ -1,5 +1,6 @@
 const resObj = [
-    {
+  {
+    info: {
       id: "231204",
       name: "Burger King",
       cloudinaryImageId: "e33e1d3ba7d6b2bb0d45e1001b731fcf",
@@ -11,9 +12,10 @@ const resObj = [
       parentId: "166",
       avgRatingString: "4.3",
       totalRatingsString: "10K+",
-    },
-  
-    {
+    }
+  },
+  {
+    info: {
       id: "330433",
       name: "McDonald's",
       cloudinaryImageId: "535fc9f9c135f7982317bbb6a64a1ffc",
@@ -33,8 +35,10 @@ const resObj = [
         lastMileTravelString: "5.0 km",
         iconType: "ICON_TYPE_EMPTY",
       },
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "405025",
       name: "KFC",
       cloudinaryImageId: "f01666ac73626461d7455d9c24005cd4",
@@ -46,8 +50,10 @@ const resObj = [
       parentId: "547",
       avgRatingString: "4.3",
       totalRatingsString: "5K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "78862",
       name: "Domino's Pizza",
       cloudinaryImageId: "092e58460657922e098a8afd5db838fe",
@@ -59,8 +65,10 @@ const resObj = [
       parentId: "2456",
       avgRatingString: "4.4",
       totalRatingsString: "5K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "165050",
       name: "Mahalaxmi Sweets & Restaurant",
       cloudinaryImageId: "oqk0mierg0rlhuxoa3ok",
@@ -80,8 +88,10 @@ const resObj = [
       parentId: "262175",
       avgRatingString: "4.4",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "63930",
       name: "The Bon Bon Bakers",
       cloudinaryImageId: "2c761e85049f81355f6bf864c97666dd",
@@ -102,8 +112,10 @@ const resObj = [
       parentId: "433397",
       avgRatingString: "4.5",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "65084",
       name: "Alamgir Hotel",
       cloudinaryImageId: "ruczyhnam8hjwkkzgiwl",
@@ -115,8 +127,10 @@ const resObj = [
       parentId: "29676",
       avgRatingString: "4.3",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "65085",
       name: "Mughal Zaika Aminabad",
       cloudinaryImageId: "yood4aumr1wbxed1odxk",
@@ -128,8 +142,10 @@ const resObj = [
       parentId: "140984",
       avgRatingString: "4.3",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "78815",
       name: "Wow! Momo",
       cloudinaryImageId: "64fd45fd9f44c1737bc446e470bed666",
@@ -150,8 +166,10 @@ const resObj = [
       parentId: "1776",
       avgRatingString: "4.3",
       totalRatingsString: "5K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "61060",
       name: "Chahat Biryani",
       cloudinaryImageId: "c46hqxsycegafkxnsi9f",
@@ -163,8 +181,10 @@ const resObj = [
       parentId: "56864",
       avgRatingString: "4.4",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "64648",
       name: "Tunday Kababi (Kapoorthala)",
       cloudinaryImageId: "4506603b1e57cdbd006a7d1585c5089d",
@@ -176,8 +196,10 @@ const resObj = [
       parentId: "1053",
       avgRatingString: "4.4",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "500868",
       name: "Vadilal Ice Creams",
       cloudinaryImageId: "g3ok1k2jpxjn3lzsdeda",
@@ -190,8 +212,10 @@ const resObj = [
       parentId: "11745",
       avgRatingString: "4.6",
       totalRatingsString: "1K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "385164",
       name: "Kwality Walls Frozen Dessert and Ice Cream Shop",
       cloudinaryImageId: "u90jeduxghreooj5v3av",
@@ -203,8 +227,10 @@ const resObj = [
       parentId: "582",
       avgRatingString: "4.6",
       totalRatingsString: "1K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "64649",
       name: "Tunday Kababi (Aminabad)",
       cloudinaryImageId: "64682ecce15228d05fd718f607ea3d14",
@@ -216,8 +242,10 @@ const resObj = [
       parentId: "218444",
       avgRatingString: "4.5",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "59654",
       name: "Subway",
       cloudinaryImageId: "63178e3e64d503a479f2a2048a474552",
@@ -229,8 +257,10 @@ const resObj = [
       parentId: "2",
       avgRatingString: "4.3",
       totalRatingsString: "10K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "60379",
       name: "Pizza Hut",
       cloudinaryImageId: "2b4f62d606d1b2bfba9ba9e5386fabb7",
@@ -242,8 +272,10 @@ const resObj = [
       parentId: "721",
       avgRatingString: "4.3",
       totalRatingsString: "1K+",
-    },
-    {
+    }
+  },
+  {
+    info: {
       id: "322639",
       name: "The Good Bowl",
       cloudinaryImageId: "6e04be27387483a7c00444f8e8241108",
@@ -255,20 +287,24 @@ const resObj = [
       parentId: "7918",
       avgRatingString: "4.3",
       totalRatingsString: "1K+",
-    },
-    {
+    }
+  },
+  {
+
+    info:{
       id: "63376",
       name: "Keventers - Milkshakes & Desserts",
       cloudinaryImageId: "cbffa2f7cba3dcd75ae945d0e06427f5",
       locality: "Sapru Marg",
       areaName: "Hazratganj",
       costForTwo: "₹200 for two",
-      cuisines: ["Beverages", "Ice Cream", "Desserts", "Healthy Food"],
-      avgRating: 4.4,
-      parentId: "268997",
-      avgRatingString: "4.4",
-      totalRatingsString: "5K+",
-    },
-  ];
+    cuisines: ["Beverages", "Ice Cream", "Desserts", "Healthy Food"],
+    avgRating: 4.4,
+    parentId: "268997",
+    avgRatingString: "4.4",
+    totalRatingsString: "5K+",
+  },
+}
+];
 
-  export default resObj;
+export default resObj;

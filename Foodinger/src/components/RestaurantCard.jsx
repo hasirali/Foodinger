@@ -1,3 +1,4 @@
+import React from "react";
 import {CDN_SRC}  from "../Utils/constants";
 
 const RestaurantCard = (props) => {
@@ -8,15 +9,15 @@ const RestaurantCard = (props) => {
     <div>
       <div className="res-card">
         <img
-          src={  CDN_SRC + resData.cloudinaryImageId }
+          src={  CDN_SRC + resData.info.cloudinaryImageId }
           alt=""
         />
-        <h3>{resData.name}</h3>
+        <h3>{resData.info.name}</h3>
         <h5>
-          {resData.avgRating}⭐{resData.locality}
+          {resData.info.avgRating}⭐{resData.locality}
         </h5>
-        <h5>{resData.cuisines.join(" ,")}</h5>
-        <h4>{resData.costForTwo}</h4>
+        <h5>{resData.info.cuisines.join(" ,")}</h5>
+        <h4>{resData.info.costForTwo}</h4>
         <button className="btn1">Order Now</button>
       </div>
     </div>
