@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from './components/Header.jsx';
 import Body from './components/Body.jsx';
-import RestaurantCard from './components/RestaurantCard.jsx';
+import Shimmer from './components/Shimmer.jsx';
+
 
 
 function App() {

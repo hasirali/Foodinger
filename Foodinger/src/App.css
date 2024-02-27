@@ -23,8 +23,8 @@ body {
   /* position: fixed; */
 }
 .nav-items ul li img {
-  height: 55px;
-  width: 53px;
+  height: 40px;
+  width: 40px;
 }
 
 .logo-container img {
@@ -60,4 +60,30 @@ body {
   background-color: #ffffff;
   border-radius: 50px;
   cursor: pointer;
+}
+
+.loginBtn{
+  font-weight: 500;
+font-size: 18px;
+color: #fff;
+background: linear-gradient(360deg, #ffbc68 0%, #f76b00 65%);
+padding: 10px 47px;
+border: solid #fafcff 1px;
+box-shadow: none;
+border-radius: 6px;
+transition : 228ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+text-transform: lowercase;
+}
+.loginBtn:hover{
+  transition : 228ms;
+padding: 10px 52px;
+transform : translateY(-0px);
+background: linear-gradient(360deg, #e8cb7b 0%, #ff7e1c 65%);
+color: #000000;
+border: solid 1px #fbfdff;
 }

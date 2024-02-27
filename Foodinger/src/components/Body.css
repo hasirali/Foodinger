@@ -49,7 +49,7 @@
 .btn1 {
   position: absolute;
   bottom: 34px;
-  left: 25px;
+  /* left: 12px; */
   background-color: rgb(233, 150, 7);
   border: none;
   display: flex;
@@ -106,30 +106,32 @@
   -webkit-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
+
   border-radius: 20px;
   margin-top: 100px;
 }
 .res-card {
+  /* display: flex; */
   position: relative;
-  background-color: rgba(255, 255, 255, 0.991);
+  background-color: rgba(255, 255, 255, 0.838);
   padding: 10px 10px;
   /* overflow-y: scroll; */
   -webkit-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 7px 3px rgba(0, 0, 0, 0.75);
-  margin: 30px 48px;
-  width: 16vw;
+  margin: 30px 28px;
+  width: 14vw;
   border-radius: 20px;
   height: 58vh;
   cursor: pointer;
 }
 .res-card:hover {
-  transform: scale(1.1);
+  transform: scale(0.9);
   transition: transform 0.1s;
 }
 .res-card img {
   /* object-fit: cover; */
   border-radius: 20px;
-  width: 16vw;
+  width: 14vw;
   height: 22vh;
 }

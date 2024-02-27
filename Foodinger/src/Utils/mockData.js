@@ -2,7 +2,7 @@ const resObj = [
   {
     info: {
       id: "231204",
-      name: "Burger King",
+      name: "Tunde",
       cloudinaryImageId: "e33e1d3ba7d6b2bb0d45e1001b731fcf",
       locality: "Hazratganj",
       areaName: "Hazratganj",
