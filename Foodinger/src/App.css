@@ -15,7 +15,7 @@ body {
 
 .header {
     border: 1px solid black;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,4 +86,11 @@ transform : translateY(-0px);
 background: linear-gradient(360deg, #e8cb7b 0%, #ff7e1c 65%);
 color: #000000;
 border: solid 1px #fbfdff;
+}
+/* styles.css */
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  /* Add other styles as needed */
 }

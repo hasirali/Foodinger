@@ -6,44 +6,40 @@ import Shimmer from "./Shimmer";
 
 function Body() {
   const [filteredResObj, setFilteredResObj] = useState([]);
-  const [filteredRestaurant,setFilteredRestaurant] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [buttonText, setButtonText] = useState("top Rated Restaurants");
   const [searchText, setSearchText] = useState("");
 
   const handleToggle = () => {
     if (buttonText === "top Rated Restaurants") {
       setButtonText("All Restaurants");
-      const filteredResObj = resObj.filter((e) => e.info.avgRating > 4.5);
-      setFilteredResObj(filteredResObj);
+      setFilteredResObj(resObj.filter((e) => e.info.avgRating > 4.5));
     } else {
       setButtonText("top Rated Restaurants");
-      setFilteredResObj(resObj);
+      setFilteredResObj(filteredRestaurant);
     }
   };
 
-  const [z, setz] = useState(filteredResObj);
-  // scope of state variable is only in this component
-  // array destructuring⬆️
-
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.87560&lng=80.91150&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
-    setFilteredRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-    setFilteredResObj(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    try {
+      const data = await fetch(
+        "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D26.87560%26lng%3D80.91150%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
+      );
+      const json = await data.json();
+      setFilteredRestaurant(
+        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      );
+      setFilteredResObj(
+        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
-
-  // conditional rendering : rendering on the basis of condition
-  // if(filteredResObj.length === 0){
-  //   return <Shimmer/>
-  // }
 
   return filteredResObj.length === 0 ? (
     <Shimmer />
@@ -55,22 +51,19 @@ function Body() {
           <div className="search">
             <input
               type="text"
-              placeholder="Enter Your favourite Resaurant Name"
+              placeholder="Enter Your favourite Restaurant Name"
               value={searchText}
-              onChange={(e) => {
-                setSearchText(e.target.value);
-              }}
+              onChange={(e) => setSearchText(e.target.value)}
             />
             <button
               className="btn"
               onClick={() => {
                 const filteredRestaurant = filteredResObj.filter((e) =>
-                e.info.name.toLowerCase().includes(searchText.toLowerCase())
+                  e.info.name.toLowerCase().includes(searchText.toLowerCase())
                 );
-                setFilteredRestaurant(filteredRestaurant);
-                
+                setFilteredResObj(filteredRestaurant);
               }}
-              >
+            >
               Search
             </button>
           </div>
@@ -81,9 +74,9 @@ function Body() {
       </div>
 
       <div className="res-container">
-        {filteredRestaurant.map((e) => {
-          return <RestaurantCard key={e.info.id} resData={e} />;
-        })}
+        {filteredResObj.map((e) => (
+          <RestaurantCard key={e.info.id} resData={e} />
+        ))}
       </div>
     </>
   );
