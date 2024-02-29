@@ -47,9 +47,9 @@
 
 }
 .btn1 {
-  position: absolute;
+  
   bottom: 34px;
-  /* left: 12px; */
+  left: 12px;
   background-color: rgb(233, 150, 7);
   border: none;
   display: flex;
@@ -138,9 +138,4 @@
 }
 NavLink{
   text-decoration: none;
-}
-.nav-link {
-  text-decoration: none;
-  color: black;
-  /* Add other styles as needed */
 }
