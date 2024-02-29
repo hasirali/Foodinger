@@ -5,16 +5,19 @@
   font-family: "Geologica", sans-serif;
 }
 body {
-    /* dont know why it is not  working for  */
-    background-image: url("https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_1200,h_630,d_uk:cuisines:argentinian-1.jpg/v1/uk/restaurants/164421.jpg");
-    background-repeat: repeat;
-    /* background-size: 100% 100%; */
-    overflow-x: hidden;
-    
-  }
+  /* dont know why it is not  working for  */
+  background-image: url("https://just-eat-prod-eu-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto,w_1200,h_630,d_uk:cuisines:argentinian-1.jpg/v1/uk/restaurants/164421.jpg");
+  background-repeat: repeat;
+  /* background-size: 100% 100%; */
+  overflow-x: hidden;
+}
 
 .header {
-    border: 1px solid black;
+  /* position: fixed;
+  top: 0;
+  z-index: 10; */
+
+  border: 1px solid black;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -62,30 +65,30 @@ body {
   cursor: pointer;
 }
 
-.loginBtn{
+.loginBtn {
   font-weight: 500;
-font-size: 18px;
-color: #fff;
-background: linear-gradient(360deg, #ffbc68 0%, #f76b00 65%);
-padding: 10px 47px;
-border: solid #fafcff 1px;
-box-shadow: none;
-border-radius: 6px;
-transition : 228ms;
-transform: translateY(0);
-display: flex;
-flex-direction: row;
-align-items: center;
-cursor: pointer;
-text-transform: lowercase;
+  font-size: 18px;
+  color: #fff;
+  background: linear-gradient(360deg, #ffbc68 0%, #f76b00 65%);
+  padding: 10px 47px;
+  border: solid #fafcff 1px;
+  box-shadow: none;
+  border-radius: 6px;
+  transition: 228ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: lowercase;
 }
-.loginBtn:hover{
-  transition : 228ms;
-padding: 10px 52px;
-transform : translateY(-0px);
-background: linear-gradient(360deg, #e8cb7b 0%, #ff7e1c 65%);
-color: #000000;
-border: solid 1px #fbfdff;
+.loginBtn:hover {
+  transition: 228ms;
+  padding: 10px 52px;
+  transform: translateY(-0px);
+  background: linear-gradient(360deg, #e8cb7b 0%, #ff7e1c 65%);
+  color: #000000;
+  border: solid 1px #fbfdff;
 }
 /* styles.css */
 

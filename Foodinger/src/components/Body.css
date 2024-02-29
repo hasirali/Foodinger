@@ -139,3 +139,8 @@
 NavLink{
   text-decoration: none;
 }
+.nav-link {
+  text-decoration: none;
+  color: black;
+  /* Add other styles as needed */
+}

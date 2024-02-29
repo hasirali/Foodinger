@@ -3,8 +3,9 @@ import RestaurantCard from "./RestaurantCard";
 import resObj from "../Utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
-function Body() {
+function Body(props) {
   const [filteredResObj, setFilteredResObj] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [buttonText, setButtonText] = useState("top Rated Restaurants");
@@ -26,6 +27,7 @@ function Body() {
         "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D26.87560%26lng%3D80.91150%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
       );
       const json = await data.json();
+      // console.log(json);
       setFilteredRestaurant(
         json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
       );
@@ -75,7 +77,13 @@ function Body() {
 
       <div className="res-container">
         {filteredResObj.map((e) => (
-          <RestaurantCard key={e.info.id} resData={e} />
+          <Link
+            className="nav-link"
+            key={e.info.id}
+            to={"/restaurants/" + e.info.id}
+          >
+            <RestaurantCard resData={e} />
+          </Link>
         ))}
       </div>
     </>
