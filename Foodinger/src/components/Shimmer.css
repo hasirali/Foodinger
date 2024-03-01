@@ -23,7 +23,7 @@
  .Shimmer-btn{
   position: absolute;
   bottom: 34px;
-  /* left: 25px; */
+  left: 4px;
   background-color: rgb(233, 150, 7);
   border: none;
   display: flex;

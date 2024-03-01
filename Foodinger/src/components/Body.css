@@ -46,14 +46,15 @@
   background-color: rgb(200, 120, 5); 
 
 }
-.btn1 {
-  
-  bottom: 34px;
+
+.btn-1 {
+  position: absolute;
+  width: 90%;
+  bottom: 0px;
   left: 12px;
   background-color: rgb(233, 150, 7);
   border: none;
   display: flex;
-  width: 90%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -63,6 +64,7 @@
   color: rgb(255, 255, 255);
   font-size: 16px; 
   font-weight: bold;
+
 }
 .btn1:hover {
   background-color: rgb(255, 255, 255);

@@ -3,9 +3,13 @@ import logo from "../assets/logo.png";
 import cart from "../assets/cart.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
 function Header() {
   const [loginText, setLoginText] = useState("Login");
+
+
+  const onlineStatus = useOnlineStatus();
 
   return (
     <>
@@ -17,6 +21,9 @@ function Header() {
         </div>
         <div className="nav-items">
           <ul>
+            <li>
+              {onlineStatus ? "Online:🟢" : "Offline:🔴"}
+            </li>
             <li>
               <NavLink to="/" className="nav-link" >Home</NavLink>
             </li>

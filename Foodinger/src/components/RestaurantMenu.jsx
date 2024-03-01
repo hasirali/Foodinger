@@ -1,48 +1,23 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import "./RestaurantMenu.css";
-import { MENU_API, MENU_IMG } from "../Utils/constants";
+import {MENU_IMG } from "../Utils/constants";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu(); //callbac function
-  }, []); //dependancy array
+  
+  const resInfo = useRestaurantMenu(resId);
 
-  const fetchMenu = async () => {
-    try {
-      const data = await fetch(MENU_API + resId + "&catalog_qa=undefined&");
-
-      const json = await data.json();
-      console.log(json);
-      setResInfo(json.data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
   if (resInfo === null) return <Shimmer />;
 
   // ? use graphQL this structre become easy
-  //  const info = resInfo?.cards[0]?.card?.card?.info || {};
-  //  const { name, costForTwo, cuisines, avgRating, locality, areaName } = info;
-  const {
-    name,
-    costForTwo,
-    cuisines,
-    avgRatingString,
-    locality,
-    areaName,
-    city,
-    cloudinaryImageId,
-  } = resInfo?.cards[0]?.card?.card?.info;
-  // const info1 =resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
-  // const { itemCards } = info1;
-  const itemCardz =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-      ?.itemCards;
+  
+  const { name,cuisines,avgRatingString,locality,areaName,city,cloudinaryImageId} = resInfo?.cards[0]?.card?.card?.info;
+
+  const itemCardz =resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+?.itemCards;
   // console.log(itemCardz);
 
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { CDN_SRC } from "../Utils/constants";
+import './Body.css';
 
 const RestaurantCard = (props) => {
   // yeh line mai batayenge ki jo resData humne pass kiya hai woh kya hai, wo ek prop hai jo humne pass kiya hai
@@ -15,7 +16,7 @@ const RestaurantCard = (props) => {
         </h5>
         <h5>{resData.info.cuisines.join(" ,")}</h5>
         <h4>{resData.info.costForTwo}</h4>
-        <button className="btn1 ">Order Now</button>
+        <button className="btn-1 ">Order Now</button>
       </div>
     </div>
   );

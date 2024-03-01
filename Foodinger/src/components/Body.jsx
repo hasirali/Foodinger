@@ -1,49 +1,46 @@
+import React, { useState } from "react";
 import "./Body.css";
+import useRestaurant from "../Utils/useRestaurant";
 import RestaurantCard from "./RestaurantCard";
-import resObj from "../Utils/mockData";
-import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 
-function Body(props) {
-  const [filteredResObj, setFilteredResObj] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-  const [buttonText, setButtonText] = useState("top Rated Restaurants");
+function Body() {
+  const [buttonText, setButtonText] = useState("Top Rated Restaurants");
   const [searchText, setSearchText] = useState("");
 
+  const { filteredRestaurant, setFilteredRestaurant, originalData } = useRestaurant();
+
   const handleToggle = () => {
-    if (buttonText === "top Rated Restaurants") {
+    console.log("Before toggle:", filteredRestaurant);
+
+    if (buttonText === "Top Rated Restaurants") {
       setButtonText("All Restaurants");
-      setFilteredResObj(resObj.filter((e) => e.info.avgRating > 4.5));
+      let filtered = filteredRestaurant.filter((e) => e.info.avgRating > 4.5);
+      setFilteredRestaurant(filtered);
+      console.log("After toggle:", filtered);
+      console.log("After toggle:", filteredRestaurant);
+      console.log("After toggle:", originalData);
+
+
     } else {
-      setButtonText("top Rated Restaurants");
-      setFilteredResObj(filteredRestaurant);
+      setButtonText("Top Rated Restaurants");
+      setFilteredRestaurant(originalData);
     }
+
   };
 
-  const fetchData = async () => {
-    try {
-      const data = await fetch(
-        "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D26.87560%26lng%3D80.91150%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING"
-      );
-      const json = await data.json();
-      // console.log(json);
-      setFilteredRestaurant(
-        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-      );
-      setFilteredResObj(
-        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-      );
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus) {
+    return (
+      <h1>
+        Looks like you are offline. Please check your internet connection.
+      </h1>
+    );
+  }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  return filteredResObj.length === 0 ? (
+  return filteredRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -60,10 +57,10 @@ function Body(props) {
             <button
               className="btn"
               onClick={() => {
-                const filteredRestaurant = filteredResObj.filter((e) =>
+                const filteredResult = originalData.filter((e) =>
                   e.info.name.toLowerCase().includes(searchText.toLowerCase())
                 );
-                setFilteredResObj(filteredRestaurant);
+                setFilteredRestaurant(filteredResult);
               }}
             >
               Search
@@ -76,7 +73,7 @@ function Body(props) {
       </div>
 
       <div className="res-container">
-        {filteredResObj.map((e) => (
+        {filteredRestaurant.map((e) => (
           <Link
             className="nav-link"
             key={e.info.id}
@@ -91,3 +88,4 @@ function Body(props) {
 }
 
 export default Body;
+  
