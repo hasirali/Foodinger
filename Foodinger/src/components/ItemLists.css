@@ -7,7 +7,8 @@
   width: 80%;
   margin: 20px auto;
   text-align: left;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.644);
+  /* box-shadow: 3px 5px 12px 0px rgba(0,0,0,0.2); */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.644);
 }
 .name{
     font-size: 20px;
@@ -54,9 +55,8 @@
     aspect-ratio: 2 / 1;
 
 }
-.rightItem img:hover {
-transform: scale(1.01);
-}
+
+
 .rightItem button{
     position: absolute;
     z-index: 1;

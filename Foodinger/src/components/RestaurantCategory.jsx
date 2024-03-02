@@ -1,12 +1,20 @@
 import React from 'react';
 import './RestaurantCategory.css';
 import ItemLists from './ItemLists';
+import { useState } from 'react';
+
 
 const RestaurantCategory = ({ data }) => {
-  console.log(data);
+  // console.log(data);
+  const [showItems ,setShowItems] = useState(false);
+  const handleClick =()=>{
+    setShowItems(!showItems);
+  }
+
+
   return (
     <div className="accordian">
-      <div className="top">
+      <div className="top" onClick ={handleClick}>
         <div className="title">
           {data.title} ({data.itemCards.length})
         </div>
@@ -14,7 +22,7 @@ const RestaurantCategory = ({ data }) => {
       </div>
       <div className="itemLists">
         {/* Pass the 'data' prop to the 'ItemLists' component */}
-        <ItemLists items={data.itemCards} />
+        {showItems && <ItemLists items={data.itemCards} />}
       </div>
     </div>
   );
