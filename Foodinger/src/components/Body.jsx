@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Body.css";
 import useRestaurant from "../Utils/useRestaurant";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
@@ -10,7 +10,10 @@ function Body() {
   const [buttonText, setButtonText] = useState("Top Rated Restaurants");
   const [searchText, setSearchText] = useState("");
 
-  const { filteredRestaurant, setFilteredRestaurant, originalData } = useRestaurant();
+  const { filteredRestaurant, setFilteredRestaurant, originalData } =
+    useRestaurant();
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   const handleToggle = () => {
     console.log("Before toggle:", filteredRestaurant);
@@ -22,13 +25,10 @@ function Body() {
       console.log("After toggle:", filtered);
       console.log("After toggle:", filteredRestaurant);
       console.log("After toggle:", originalData);
-
-
     } else {
       setButtonText("Top Rated Restaurants");
       setFilteredRestaurant(originalData);
     }
-
   };
 
   const onlineStatus = useOnlineStatus();
@@ -79,7 +79,12 @@ function Body() {
             key={e.info.id}
             to={"/restaurants/" + e.info.id}
           >
-            <RestaurantCard resData={e} />
+            {e.info.promoted ? (
+              <RestaurantCardPromoted resData={e} />
+              
+            ) : (
+              <RestaurantCard resData={e} />
+            )}
           </Link>
         ))}
       </div>
@@ -88,4 +93,3 @@ function Body() {
 }
 
 export default Body;
-  

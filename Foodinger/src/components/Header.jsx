@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 import logo from "../assets/logo.png";
 import cart from "../assets/cart.svg";
 import { useState } from "react";

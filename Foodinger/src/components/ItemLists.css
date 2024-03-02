@@ -1,0 +1,80 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-top: 40px;
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.644);
+}
+.name{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 25px;
+}
+.price{
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+.description{
+    color: grey;
+    font-weight: 300;
+    font-size: 14px;
+}
+.leftItem{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+}
+.rightItem {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow-y: hidden;
+    height: 100px;
+    width: 100px;
+    object-fit: fill;
+}
+
+.rightItem img {
+    cursor: pointer;
+    display: flex;
+    background-color: rgba(40, 44, 63, 0.05);
+    background-blend-mode: overlay;
+    border-radius: 10px;
+    height: 100px;
+    aspect-ratio: 2 / 1;
+
+}
+.rightItem img:hover {
+transform: scale(1.01);
+}
+.rightItem button{
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    border: none;
+    border-radius: 1px;
+    background-color: rgb(255, 184, 54);
+    color: white;
+    font-size: 16px;
+    font-weight: 900px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius:10px;
+}
+.rightItem button:hover {
+    background-color: white;
+    color: rgb(255, 184, 54);
+    cursor: pointer;
+    transition: 0.2s ease-in; transform: scale(1.01);
+}

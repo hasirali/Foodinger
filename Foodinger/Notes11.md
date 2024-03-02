@@ -1,3 +1,11 @@
+# higher Order Components
+
+- Higher order componet is function that takes a component and resturrns a  componennts
+- just a normal javascript function.
+- takes a components enhance it and return its
+
+eg:
+```
 import React from "react";
 import { CDN_SRC } from "../Utils/constants";
 import "./RestaurantCard.css";
@@ -39,3 +47,41 @@ export const withPromotedLabel = (RestaurantCard) => {
 };
 
 export default RestaurantCard;
+```
+
+Body
+````
+
+import useRestaurant from "../Utils/useRestaurant";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+.
+.
+.
+.
+.
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  .
+  .
+  .
+  .
+  .
+  .
+
+
+          <!-- change hehre -->
+            {e.info.promoted ? (
+              <RestaurantCardPromoted resData={e} />
+              
+            ) : (
+              <RestaurantCard resData={e} />
+            )}
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default Body;
+````

@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 10px;
 }
 .MenuS1-right {
@@ -93,6 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column  ;
 }
 
 .items ul li {
@@ -117,7 +119,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .hotel ul {
@@ -130,10 +132,10 @@
   font-size: 16px;
   margin-bottom: 10px;
 }
-.btn1 {
-    /* position: absolute; */
+/* .btn-1 {
+    position: absolute;
     top: 50px;
-    /* left: 12px; */
+    left: 12px;
     background-color: rgb(233, 150, 7);
     border: none;
     display: flex;
@@ -147,4 +149,4 @@
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: bold;
-  }
+  } */

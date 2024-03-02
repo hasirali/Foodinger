@@ -42,6 +42,21 @@ function Shimmer() {
           <div className="loader"></div>
           <button className="Shimmer-btn"></button>
         </div>
+        <div className="shimmer-cards">
+          <img src={grey} alt="" />
+          <div className="loader"></div>
+          <button className="Shimmer-btn"></button>
+        </div>
+        <div className="shimmer-cards">
+          <img src={grey} alt="" />
+          <div className="loader"></div>
+          <button className="Shimmer-btn"></button>
+        </div>
+        <div className="shimmer-cards">
+          <img src={grey} alt="" />
+          <div className="loader"></div>
+          <button className="Shimmer-btn"></button>
+        </div>
        
 
 

@@ -1,24 +1,46 @@
 import { useParams } from "react-router-dom";
+// import RestaurantCategories from "./RestaurantCategories.jsx";
+import RestaurantCategory from "./RestaurantCategory.jsx";
 import Shimmer from "./Shimmer";
+
 import "./RestaurantMenu.css";
-import {MENU_IMG } from "../Utils/constants";
+import { MENU_IMG } from "../Utils/constants";
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
-  
   const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) return <Shimmer />;
 
   // ? use graphQL this structre become easy
-  
-  const { name,cuisines,avgRatingString,locality,areaName,city,cloudinaryImageId} = resInfo?.cards[0]?.card?.card?.info;
 
-  const itemCardz =resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-?.itemCards;
+  const {
+    name,
+    cuisines,
+    avgRatingString,
+    locality,
+    areaName,
+    city,
+    cloudinaryImageId,
+  } = resInfo?.cards[0]?.card?.card?.info || {}; 
+
+  // const itemCardz =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+      ?.itemCards;
   // console.log(itemCardz);
+  // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((e) => {
+      return (
+        e.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
+    });
+
+  // console.log(categories);
 
   return (
     <>
@@ -32,7 +54,7 @@ const RestaurantMenu = () => {
             </div>
           </div>
           <div className=" MenuS2">
-            <span>Cusines: {cuisines.join(",")}</span>
+            <span>Cusines: {cuisines?.join(",")}</span>
             <p>
               {locality} , {areaName} , {city}
             </p>
@@ -41,27 +63,9 @@ const RestaurantMenu = () => {
           <div className="menu">
             <h1>Menu</h1>
             <div className="items">
-              <ul>
-                {itemCardz?.map((item) => (
-                  <li key={item?.card?.info?.id}>
-                    <div className="img">
-                      <img src={MENU_IMG + item?.card?.info?.imageId || item?.card?.info?.image} /> 
-                    </div>
-                    <div className="info">
-                      <h1>{item?.card?.info?.name}</h1>
-                      <h3>
-
-                      {item?.card?.info?.description}
-                      </h3>
-                      <h2>
-                        {item?.card?.info?.defaultPrice / 100 ||
-                          item?.card?.info?.price / 100} Rs
-                      </h2>
-                      {/*<button className="btn1">Order Now</button> */}
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              {categories.map((category) => (
+                <RestaurantCategory data={category?.card?.card}/>
+              ))}
             </div>
           </div>
         </div>
