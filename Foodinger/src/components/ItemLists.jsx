@@ -1,7 +1,7 @@
 import React from "react";
 import "./ItemLists.css";
 import { useDispatch } from "react-redux";
-import { addItems } from "../Utils/cartSlice";
+import { addItems , removeItems} from "../Utils/cartSlice";
 
 const ItemLists = ({ items }) => {
   const dispatch = useDispatch();
@@ -10,6 +10,10 @@ const ItemLists = ({ items }) => {
     // dispatch the action to add the items to the cart
     dispatch(addItems(item));
   };
+
+  const handleRemoveItems=(item)=>{
+    dispatch(removeItems(item));
+  }
 
   return (
     <>
@@ -41,6 +45,14 @@ const ItemLists = ({ items }) => {
                 }}
               >
                 ADD +
+              </button>
+              <button
+                className="remove"
+                onClick={() => {
+                  handleRemoveItems(item);
+                }}
+              >
+                Remove -
               </button>
             </div>
           </div>

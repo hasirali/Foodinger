@@ -10,6 +10,7 @@ const Cart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
   const cartItems = useSelector((store) => store.cart.items);
   return (
     <>
@@ -25,11 +26,10 @@ const Cart = () => {
               <h2>Cart is Empty Add items to your cart</h2>
             )}
             <div className="btn-grp">
-
-            <button className="checkout" onClick={handleClearCart}>
-              Clear Cart
-            </button>
-            <button className="checkout">Checkout</button>
+              <button className="checkout" onClick={handleClearCart}>
+                Clear Cart
+              </button>
+              <button className="checkout">Checkout</button>
             </div>
           </div>
         </div>
