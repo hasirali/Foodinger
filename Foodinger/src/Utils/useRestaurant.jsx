@@ -9,7 +9,7 @@ const useRestaurant = () => {
    
       const data = await fetch(RESTAURANT_API);
       const json = await data.json();
-      const res = json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants;
+      const res = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
       console.log(res);
       setOriginalData(res);
       setFilteredRestaurant(res);

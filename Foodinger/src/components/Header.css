@@ -76,6 +76,7 @@
     cursor: pointer;
     text-transform: lowercase;
   }
+
   .loginBtn:hover {
     transition: 228ms;
     padding: 10px 52px;
@@ -91,4 +92,9 @@
     color: black;
     /* Add other styles as needed */
   }
-  
+  .loggedIn{
+    text-decoration: none;
+    color: black;
+    /* background-color: #fdfcfa;; */
+    border-radius: 20px;
+  }

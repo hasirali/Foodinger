@@ -1,7 +1,16 @@
 import React from "react";
 import "./ItemLists.css";
+import { useDispatch } from "react-redux";
+import { addItems } from "../Utils/cartSlice";
 
 const ItemLists = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItems = (item) => {
+    // dispatch the action to add the items to the cart
+    dispatch(addItems(item));
+  };
+
   return (
     <>
       <div>
@@ -19,8 +28,20 @@ const ItemLists = ({ items }) => {
               </div>
             </div>
             <div className="rightItem">
-              <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" + item.card.info.imageId} alt={item.card.info.name} />
-            <button>ADD +</button>
+              <img
+                src={
+                  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
+                  item.card.info.imageId
+                }
+                alt={item.card.info.name}
+              />
+              <button
+                onClick={() => {
+                  handleAddItems(item);
+                }}
+              >
+                ADD +
+              </button>
             </div>
           </div>
         ))}

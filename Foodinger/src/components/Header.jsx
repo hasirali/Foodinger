@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import logo from "../assets/logo.png";
 import cart from "../assets/cart.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import UserContext from "../Utils/UserContext";
+import { useSelector } from "react-redux";
 
 function Header() {
   const [loginText, setLoginText] = useState("Login");
 
+  const {loggedInUser} = useContext(UserContext);
+  // console.log(data);
 
   const onlineStatus = useOnlineStatus();
+
+  // selector Hook ( subscribing to the store usig selector)
+  const cartItems = useSelector((store) => store.cart.items);
+
 
   return (
     <>
@@ -34,9 +42,10 @@ function Header() {
             <li>
               <NavLink to="/contact" className="nav-link">Conact Us</NavLink>
             </li>
+            
             <li className="cart">
               <NavLink to="/cart" className="nav-link">
-                <img src={cart} alt="" />
+                <img src={cart} alt="" />({cartItems.length})
               </NavLink>
             </li>
 
@@ -52,6 +61,9 @@ function Header() {
             >
               {loginText}
             </button>
+            <li className=" loggedIn">
+              {loggedInUser }
+            </li>
           </ul>
         </div>
       </div>

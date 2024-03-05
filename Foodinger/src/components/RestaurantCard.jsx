@@ -1,10 +1,13 @@
-import React from "react";
 import { CDN_SRC } from "../Utils/constants";
 import "./RestaurantCard.css";
+// import React, { useContext } from "react";
+// import UserContext from "../Utils/UserContext";
 
 const RestaurantCard = (props) => {
   // yeh line mai batayenge ki jo resData humne pass kiya hai woh kya hai, wo ek prop hai jo humne pass kiya hai
   const { resData } = props;
+
+  // const{loggedInUser} = useContext(UserContext);
 
   return (
     <div>
@@ -17,6 +20,7 @@ const RestaurantCard = (props) => {
         <h5>{resData.info.cuisines.join(" ,")}</h5>
         <h4>{resData.info.costForTwo}</h4>
         <button className="btn-1">Order Now</button>
+         {/* <h1>{loggedInUser}</h1> */}
       </div>
     </div>
   );
@@ -29,8 +33,9 @@ export const withPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <>
+     
         <label className="open-label">
-          Promoted
+          Open
         </label>
         <RestaurantCard {...props} />
       </>

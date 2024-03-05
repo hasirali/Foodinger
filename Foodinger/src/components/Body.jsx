@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Body.css";
 import useRestaurant from "../Utils/useRestaurant";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import UserContext from "../Utils/UserContext";
 
 function Body() {
   const [buttonText, setButtonText] = useState("Top Rated Restaurants");
@@ -14,6 +15,7 @@ function Body() {
     useRestaurant();
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const handleToggle = () => {
     console.log("Before toggle:", filteredRestaurant);
@@ -66,10 +68,20 @@ function Body() {
               Search
             </button>
           </div>
+          <div className="input-text">
+            <div className="input1">
+              <input
+                placeholder="Enter Your Name"
+                value={loggedInUser}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+              <label>User Name</label>
+              <button className="filtered-btn " onClick={handleToggle}>
+                {buttonText}
+              </button>
+            </div>
+          </div>
         </div>
-        <button className="filtered-btn" onClick={handleToggle}>
-          {buttonText}
-        </button>
       </div>
 
       <div className="res-container">
@@ -79,9 +91,8 @@ function Body() {
             key={e.info.id}
             to={"/restaurants/" + e.info.id}
           >
-            {e.info.promoted ? (
+            {e.info.isOpen ? (
               <RestaurantCardPromoted resData={e} />
-              
             ) : (
               <RestaurantCard resData={e} />
             )}
