@@ -1,6 +1,6 @@
-.body{
+.body {
   display: flex;
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
   /* justify-content: center; */
   align-items: center;
 }
@@ -36,7 +36,7 @@
   border: none;
 }
 .btn {
-    background-color: rgb(233, 150, 7);
+  background-color: rgb(233, 150, 7);
   border: none;
   width: 20vh;
   cursor: pointer;
@@ -119,10 +119,43 @@
   font-weight: bold;
 }
 
-.input1 input{
-  padding: 10px 20px 12px 20px ;
+.input1 input {
+  padding: 10px 20px 12px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+@media only screen and (max-width: 800px) {
+  .search {
+    width: 100%;
+    margin: 0 auto;
+    height: 100px;
+  }
+  .search input {
+    width: 350px;
+    border-top-left-radius: 0px;
+    border-radius: 0px;
+  }
+  .search button {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100px;
+  }
+
+  .input1 {
+    width: 100%;
+    margin: 0 auto;
+    }
+  .input1 input{
+    width: 350px;
+    border-top-left-radius: 0px;
+    border-radius: 0px;
+  }
+  .input1 label{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+
+  }
 }

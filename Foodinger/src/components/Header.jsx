@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import logo from "../assets/logo.png";
 import cart from "../assets/cart.svg";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import UserContext from "../Utils/UserContext";
@@ -10,15 +9,15 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const [loginText, setLoginText] = useState("Login");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const {loggedInUser} = useContext(UserContext);
-  // console.log(data);
-
+  const { loggedInUser } = useContext(UserContext);
   const onlineStatus = useOnlineStatus();
-
-  // selector Hook ( subscribing to the store usig selector)
   const cartItems = useSelector((store) => store.cart.items);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
@@ -28,27 +27,34 @@ function Header() {
             <img src={logo} alt="logo Image" />
           </NavLink>
         </div>
-        <div className="nav-items">
+        <div className="menu-icon" onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
+        <div className={`nav-items ${isMenuOpen ? 'open' : ''}`}>
           <ul>
+            <li>{onlineStatus ? "Online:🟢" : "Offline:🔴"}</li>
             <li>
-              {onlineStatus ? "Online:🟢" : "Offline:🔴"}
+              <NavLink to="/" className="nav-link">
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/" className="nav-link" >Home</NavLink>
+              <NavLink to="/about" className="nav-link">
+                About Us
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className="nav-link">About Us</NavLink>
+              <NavLink to="/contact" className="nav-link">
+                Contact Us
+              </NavLink>
             </li>
-            <li>
-              <NavLink to="/contact" className="nav-link">Conact Us</NavLink>
-            </li>
-            
             <li className="cart">
               <NavLink to="/cart" className="nav-link">
                 <img src={cart} alt="" />({cartItems.length})
               </NavLink>
             </li>
-
             <button
               className="loginBtn"
               onClick={() => {
@@ -61,9 +67,7 @@ function Header() {
             >
               {loginText}
             </button>
-            <li className=" loggedIn">
-              {loggedInUser }
-            </li>
+            <li className="loggedIn">{loggedInUser}</li>
           </ul>
         </div>
       </div>

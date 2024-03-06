@@ -5,11 +5,14 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Error from "./components/Error.jsx";
 import Cart from "./components/Cart.jsx";
+import Foot from "./components/Foot.jsx";
+
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
 import { Routes, Route } from "react-router-dom";
 import UserContext from "./Utils/UserContext.jsx";
 import { Provider } from "react-redux";
 import appStore from "./Utils/appStore.jsx";
+
 
 function App() {
   // Authentication Logic
@@ -36,6 +39,7 @@ function App() {
             {/* This Route with 'path="*"' will act as a catch-all for 404 */}
             <Route path="*" element={<Error />} />
           </Routes>
+          <Foot />
         </UserContext.Provider>
       </Provider>
     </>
