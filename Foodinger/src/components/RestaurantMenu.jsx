@@ -33,14 +33,14 @@ const RestaurantMenu = () => {
   // console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((e) => {
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((e) => {
       return (
         e.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
     });
 
-  // console.log(categories); 
+  console.log(categories); 
 
   return (
     <>
